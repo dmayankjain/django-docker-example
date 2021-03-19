@@ -27,13 +27,14 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'mayank-acr-sp'
-        repository: 'language'
-        command: 'push'
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'mayank-acr-sp'
+        repository: 'demo'
+        command: 'push'
+    
