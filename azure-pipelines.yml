@@ -30,7 +30,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'mayank-acr-sp'
-        repository: 'demo'
+        repository: 'language'
         command: 'push'
     - task: PublishBuildArtifacts@1
       inputs:
