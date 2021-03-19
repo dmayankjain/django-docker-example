@@ -11,4 +11,4 @@ jobs:
   steps:
   - bash:
       echo $(g_v)
-    displayname: 'run a one line script'
+    displayName: 'run a one line script'
