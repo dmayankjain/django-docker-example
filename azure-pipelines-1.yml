@@ -1,14 +1,18 @@
-variables:
-  g_v: 'global_value'
-
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-- job:
-  variables:
-    g_v: 'local_value'
-  steps:
-  - bash:
-      echo $(g_v)
-    displayName: 'run a one line script'
+variables:
+  tier: web
+  target: dev
+
+
+steps:
+- bash:
+    echo $(tier)
+    echo $(target)
+  displayName: 'regular variable'
+
+- bash:
+    echo $(TIER)
+    echo $(TARGET)
+  displayName: 'environment variable'
