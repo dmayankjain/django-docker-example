@@ -5,11 +5,11 @@ variables:
   tier: web
   target: dev
 
-
 steps:
 - bash:
     echo $(tier)
     echo $(target)
+
   displayName: 'regular variable'
 
 - bash:
