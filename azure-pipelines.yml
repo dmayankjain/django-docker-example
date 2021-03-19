@@ -21,20 +21,15 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build and push an image to container registry
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+        command: 'buildAndPush'
+        repository: 'demo'
+        Dockerfile: '**/Dockerfile'
+        containerRegistry: 'mayank-acr-sp'
+        tags: '$(tag)'
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'mayank-acr-sp'
-        repository: 'demo'
-        command: 'push'
-    
