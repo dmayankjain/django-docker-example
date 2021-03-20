@@ -1,10 +1,11 @@
 variables:
-- group: development
+- template: development.yml
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - script:
-    echo "tier $(tier)" | "target $(env)"
+    echo 'appname:$(appname)'
+    echo 'version:$(version)'
   displayName: 'variables from group'
