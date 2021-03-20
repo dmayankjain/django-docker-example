@@ -1,7 +1,12 @@
 steps:
 - bash:
+    # Using an input-macro
     echo $(secretvalue)
+
+    # using the env var directly
     echo $SECRETVALUE
+    
+    # using the mapped env variable
     echo $MY_MAPPED_ENV_VAR
 
   env:
