@@ -1,8 +1,10 @@
 steps:
 - bash:
     echo "this works:" "$(secretvalue)"
+    |
     echo "this dosen't works:" $SECRETVALUE
-    echo "this works:" $MY_MAPPED_ENV_VAR
+    |
+    echo "this works:" "$MY_MAPPED_ENV_VAR"
 
   env:
     $MY_MAPPED_ENV_VAR: $(secretvalue)
