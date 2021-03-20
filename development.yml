@@ -1,5 +1,5 @@
 variables:
   containerRegistry: mayank-acr-sp
-  azureSubscription: Ravindra Subscription
+  azureSubscription: mayank-sp
   appname: crazyapp
   version: 1.1.1
