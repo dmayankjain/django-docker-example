@@ -1,21 +1,9 @@
-pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  tier: web
-  target: dev
-
 steps:
-- bash:
-    echo $(tier)
-- bash:
-    echo $(target)
-
-  displayName: 'regular variable'
 
 - bash:
-    echo $(TIER)
-- bash:
-    echo $(TARGET)
+    echo "this works: $(secretvalue)"
+    echo "this dosen't work: $SECRETVALUE"
+    echo "this works: $MY_MAPPED_ENV_VAR" 
 
-  displayName: 'environment variable'
+env:
+  $MY_MAPPED_ENV_VAR: $(secretvalue)
