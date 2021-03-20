@@ -1,7 +1,9 @@
 steps:
 
 - bash:
+    # using an input-macro:
     echo "this works: $(secretvalue)"
+
     echo "this dosen't work: $SECRETVALUE"
     echo "this works: $MY_MAPPED_ENV_VAR" 
 
