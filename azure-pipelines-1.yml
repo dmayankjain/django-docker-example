@@ -1,8 +1,11 @@
-steps:
-- bash:
-    echo "works:$(secretvalue)"
-    echo "DOSENT works:$SECRETVALUE"
-    echo "works:$MY_MAPPED_ENV_VAR"
+variables:
+- group: development
 
-  env:
-    $MY_MAPPED_ENV_VAR: $(secretvalue)
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script:
+    echo "tier $(tier)"
+    echo "target $(env)"
+  displayName: 'variables from group'
