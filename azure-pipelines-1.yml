@@ -1,11 +1,8 @@
 steps:
-
 - bash:
-    # using an input-macro:
-    echo "this works: $(secretvalue)"
+    echo $(secretvalue)
+    echo $SECRETVALUE
+    echo $MY_MAPPED_ENV_VAR
 
-    echo "this dosen't work: $SECRETVALUE"
-    echo "this works: $MY_MAPPED_ENV_VAR" 
-
-env:
-  $MY_MAPPED_ENV_VAR: $(secretvalue)
+  env:
+    $MY_MAPPED_ENV_VAR: $(secretvalue)
