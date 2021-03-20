@@ -2,7 +2,7 @@ steps:
 - bash:
 
     # Using the mapped env variable:
-    echo $MY_MAPPED_ENV_VAR
+    echo "works:$MY_MAPPED_ENV_VAR"
 
   env:
     $MY_MAPPED_ENV_VAR: $(secretvalue)
