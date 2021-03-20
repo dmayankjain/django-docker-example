@@ -8,11 +8,14 @@ variables:
 steps:
 - bash:
     echo $(tier)
+- bash:
     echo $(target)
 
   displayName: 'regular variable'
 
 - bash:
     echo $(TIER)
+- bash:
     echo $(TARGET)
+
   displayName: 'environment variable'
