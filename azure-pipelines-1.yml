@@ -6,6 +6,7 @@ pool:
 
 steps:
 - script:
+    |
     echo "tier $(tier)"
     |
     echo "target $(env)"
