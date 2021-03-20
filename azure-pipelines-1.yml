@@ -7,6 +7,6 @@ pool:
 steps:
 - script:
     echo "tier $(tier)"
-- script:
+    |
     echo "target $(env)"
   displayName: 'variables from group'
