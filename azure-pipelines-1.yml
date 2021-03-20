@@ -1,6 +1,6 @@
 steps:
 - bash:
-    echo "this works:" "$(secretvalue)"
+    echo "this works:" $(secretvalue)
     |
     echo "this dosen't works:" $SECRETVALUE
     |
