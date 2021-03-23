@@ -10,6 +10,7 @@ resources:
 
 variables:
 - template: development.yml
+  tag: '$(Build.BuildId)'
 
 stages:
 - stage: Build
@@ -21,7 +22,9 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: login
+      displayName: push and pull
       inputs:
         containerRegistry: '$(containerRegistry)'
-        command: 'login'
+        repository: 'mayank'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
