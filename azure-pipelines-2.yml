@@ -21,17 +21,7 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: login
       inputs:
-        command: 'buildAndPush'
-        repository: 'demo'
-        Dockerfile: '**/Dockerfile'
         containerRegistry: '$(containerRegistry)'
-        tags: '$(tag)'
-    - task: CopyFiles@2
-      inputs:
-        targetFolder: '$(Build.ArtifactStagingDirectory)'    
-    - task: PublishBuildArtifacts@1    
-      displayName: 'Publish Artifact: drop'
-      inputs:
-        PathtoPublish: '$(build.artifactstagingdirectory)'
+        command: 'login'
