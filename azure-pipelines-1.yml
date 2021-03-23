@@ -9,3 +9,29 @@ steps:
     echo 'appname:$(appname)'
     echo 'version:$(version)'
   displayName: 'variables from group'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: 'buildAndPush'
+        repository: 'demo1'
+        Dockerfile: '**/Dockerfile'
+        containerRegistry: '$(mayank-acr-sp)'
+        tags: '$(tag)'
+    - task: CopyFiles@2
+      inputs:
+        targetFolder: '$(Build.ArtifactStagingDirectory)'    
+    - task: PublishBuildArtifacts@1    
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+
