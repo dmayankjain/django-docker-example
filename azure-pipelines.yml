@@ -22,7 +22,6 @@ stages:
 
 - stage: CD
   displayName: CD STAGE
-  dependsOn: CI
   jobs:
   - deployment: Deploy
     displayName: Deploy
