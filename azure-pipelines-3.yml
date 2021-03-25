@@ -10,7 +10,7 @@ pool:
 resources:
   pipelines:
   - pipeline: mysourcepipeline
-    source: 'pipelines trigger - source'
+    source: 'source'
     trigger:
       branches: 
       - master
