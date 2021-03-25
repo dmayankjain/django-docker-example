@@ -16,5 +16,5 @@ resources:
       - master
 
 steps:
-- script: echo triggered by the source pipeline '${{ resources.pipeline.mysourcepipeline.pipelineName }} '!
+- script: echo triggered by the source pipeline 
   displayName: 'single line script'
