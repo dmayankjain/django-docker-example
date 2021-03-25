@@ -22,7 +22,7 @@ stages:
 
 - stage: CD
   displayName: CD STAGE
-  dependsOn: Build
+  dependsOn: CI
   jobs:
   - deployment: Deploy
     displayName: Deploy
