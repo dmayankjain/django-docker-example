@@ -9,11 +9,11 @@ pool:
 
 resources:
   pipelines:
-    - pipeline: mysourcepipeline
-      source: 'pipelines trigger - source'
-      trigger:
-        branches: 
-        - master
+  - pipeline: mysourcepipeline
+    source: 'pipelines trigger - source'
+    trigger:
+      branches: 
+      - master
 
 steps:
 - script: echo triggered by the source pipeline '${{ resources.pipeline.mysourcepipeline.pipelineName }}'
