@@ -1,0 +1,20 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+resources:
+  pipelines:
+    - pipeline: mysourcepipeline
+      source: 'pipelines trigger - source'
+      trigger:
+        branches: 
+        - master
+
+steps:
+- script: echo triggered by the source pipeline '${{ resources.pipeline.mysourcepipeline.pipelineName }}'
+  displayName: 'single line script'
